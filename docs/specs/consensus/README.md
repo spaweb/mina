@@ -101,7 +101,7 @@ These are the `mainnet` parameters Mina uses for Samasika
 | `delta`                         | `0`                     | Maximum permissable delay of packets (in slots after the current) |
 | `k`                             | `290`                   | Point of finality (number of confirmations) |
 | `slots_per_epoch`               | `7140`                  | Number of slots per epoch |
-| `slots_duration`                | `180000` (= 3m)         | Slot duration in ms |
+| `slot_duration`                 | `180000` (= 3m)         | Slot duration in ms |
 | `epoch_duration`                | `1285200000` (= 14d21h) | Duration of an epoch in ms |
 | `grace_period_end`              | `1440`                  | Number of slots before minimum window density is used in chain selection |
 | `genesis_state_timestamp`       | `1615939200000` (Mar 17, 2021 00:00:00 GMT+0000) | Timestamp of genesis block in unixtime |
