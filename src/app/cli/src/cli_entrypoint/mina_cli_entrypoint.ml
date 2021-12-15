@@ -273,14 +273,14 @@ let setup_daemon logger =
            (Cli_lib.Arg_type.pubsub_topic_mode_to_string
               Cli_lib.Default.pubsub_v1))
       (optional pubsub_topic_mode)
-  and pubsub_v2 =
-    flag "--pubsub-v2" ~aliases:[ "pubsub-v2" ]
+  and pubsub_v0 =
+    flag "--pubsub-v0" ~aliases:[ "pubsub-v0" ]
       ~doc:
         (Printf.sprintf
-           "Mode of handling pubsub v2 topic: 'ro', 'rw' or 'none' (default: \
+           "Mode of handling pubsub v0 topic: 'ro', 'rw' or 'none' (default: \
             %s)"
            (Cli_lib.Arg_type.pubsub_topic_mode_to_string
-              Cli_lib.Default.pubsub_v2))
+              Cli_lib.Default.pubsub_v0))
       (optional pubsub_topic_mode)
   and max_connections =
     flag "--max-connections" ~aliases:[ "max-connections" ]
@@ -1052,9 +1052,9 @@ let setup_daemon logger =
         or_from_config to_pubsub_topic_mode_option "pubsub-v1"
           ~default:Cli_lib.Default.pubsub_v1 pubsub_v1
       in
-      let pubsub_v2 =
-        or_from_config to_pubsub_topic_mode_option "pubsub-v2"
-          ~default:Cli_lib.Default.pubsub_v2 pubsub_v2
+      let pubsub_v0 =
+        or_from_config to_pubsub_topic_mode_option "pubsub-v0"
+          ~default:Cli_lib.Default.pubsub_v0 pubsub_v0
       in
       let validation_queue_size =
         or_from_config YJ.Util.to_int_option "validation-queue-size"
@@ -1100,7 +1100,7 @@ Pass one of -peer, -peer-list-file, -seed, -peer-list-url.|} ;
           ; min_connections
           ; max_connections
           ; pubsub_v1
-          ; pubsub_v2
+          ; pubsub_v0
           ; validation_queue_size
           ; isolate = Option.value ~default:false isolate
           ; keypair = libp2p_keypair

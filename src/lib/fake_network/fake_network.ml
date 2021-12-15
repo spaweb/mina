@@ -86,6 +86,11 @@ let setup (type n) ?(logger = Logger.null ())
               (* TODO: merge implementations with mina_lib *)
               Mina_networking.create
                 (config peer state.consensus_local_state)
+                ~sinks:
+                  { sink_tx = Network_pool.Transaction_pool.Remote_sink.void
+                  ; sink_snark_work = Network_pool.Snark_pool.Remote_sink.void
+                  ; sink_block = Network_pool.Block_sink.void
+                  }
                 ~get_staged_ledger_aux_and_pending_coinbases_at_hash:
                   (fun query_env ->
                   let input = Envelope.Incoming.data query_env in
