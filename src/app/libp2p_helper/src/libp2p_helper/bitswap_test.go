@@ -542,7 +542,7 @@ func TestBitswapMedium(t *testing.T) {
 		t.Skip("skipping TestBitswapMedium in short mode")
 		return
 	}
-	testBitswap(t, 100, 10, 5, 1<<16, true)
+	testBitswap(t, 100, 1, 5, 1<<16, true)
 }
 
 func TestBitswapSmoke(t *testing.T) {
